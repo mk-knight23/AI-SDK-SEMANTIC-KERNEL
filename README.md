@@ -1,15 +1,15 @@
-# 🧠 Microsoft Semantic Kernel SDK
+🧠 Microsoft Semantic Kernel
 
 [![Status](https://img.shields.io/badge/Status-Beta-yellow.svg)]()
 [![Version](https://img.shields.io/badge/Version-0.1.0-blue.svg)]()
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-success.svg)]()
 [![Coverage](https://img.shields.io/badge/Coverage-80%25-brightgreen.svg)]()
-[![Platform](https://img.shields.io/badge/Platform-GCP-informational.svg)](https://cloud.google.com/)
+[![Platform](https://img.shields.io/badge/Platform-azure-informational.svg)](https://azure.com/)
 
 ## 📋 Overview
 
-Microsoft Semantic Kernel with Astro and Flask
+Microsoft Semantic Kernel with React and Flask
 
 **Current Version:** 0.1.0 | **Status:** Beta | **Completion:** 75%
 
@@ -17,9 +17,9 @@ Microsoft Semantic Kernel with Astro and Flask
 
 ## 📖 About The Project
 
-### What is Microsoft Semantic Kernel SDK?
+### What is Microsoft Semantic Kernel?
 
-Microsoft's lightweight SDK for integrating AI capabilities into applications. Features kernel-based orchestration, plugin system, and seamless OpenAI/Azure OpenAI integration.
+A production-ready AI framework application showcasing Semantic Kernel's powerful capabilities for building Microsoft plugin ecosystem. This project demonstrates enterprise-grade patterns for AI-native application development.
 
 ### Why This Project Exists?
 
@@ -37,20 +37,23 @@ Building AI applications requires integrating multiple complex systems:
 - Context persistence and memory management
 - Vector database operations for RAG
 - Real-time streaming responses
-- Multi-agent orchestration
+- function calling and plugins
 
 This project provides a complete, working solution to these challenges.
 
 ### Key Features
 
 ✨ **Semantic Kernel Integration**
-- Full-featured Semantic Kernel v1.19.0 integration
-- Production-ready error handling and retries
-- Streaming and non-streaming response modes
-- Advanced prompt engineering templates
+- Full-featured Semantic Kernel
+- Microsoft plugin ecosystem
+- Function calling and skills
+- Memory and context management
+- Azure OpenAI integration
+- Planner and orchestration
+- Enterprise-grade security
 
 🎨 **Modern UI**
-- Astro v5.0 with TypeScript
+- Modern React-based frontend with TypeScript
 - Responsive design with dark mode
 - Real-time updates via WebSocket
 - Accessible components (WCAG 2.1 AA)
@@ -88,25 +91,25 @@ This project provides a complete, working solution to these challenges.
 
 | Technology | Version | Description |
 |------------|---------|-------------|
-| [![Astro](https://astro.build/)](https://img.shields.io/badge/Astro-5.0-61DAFB.svg)] | 5.0 | Astro frontend framework |
-| [![React](https://react.dev/)](https://img.shields.io/badge/React-19.0-61DAFB.svg) | 19.0 | React library for UI |
-| [![TypeScript](https://www.typescriptlang.org/)](https://img.shields.io/badge/TypeScript-5.0-3178C6.svg) | 5.0 | Type-safe JavaScript |
+| [![React](https://react.dev/)](https://img.shields.io/badge/React-19.0-61DAFB.svg) | 19 | React frontend framework |
+| [![Vite](https://vitejs.dev/)](https://img.shields.io/badge/Vite-Latest-646CFF.svg) | Latest | Vite frontend framework |
+| [![TypeScript](https://www.typescriptlang.org/)](https://img.shields.io/badge/TypeScript-5-3178C6.svg) | 5 | Type-safe JavaScript |
 
 ### Backend
 
 | Technology | Version | Description |
 |------------|---------|-------------|
-| [![Flask](https://flask.palletsprojects.com/)](https://img.shields.io/badge/Flask-3.0-009688.svg)] | 3.0 | Flask backend framework |
-| [![Semantic Kernel](https://github.com/microsoft/semantic-kernel)](https://img.shields.io/badge/Semantic%20Kernel-1.19.0-red.svg) | 1.19.0 | Semantic Kernel AI SDK |
-| [![Python](https://www.python.org/)](https://img.shields.io/badge/Python-3.12%2B-3776AB.svg) | 3.12+ | Python runtime (if applicable) |
+| [![Flask](https://flask.palletsprojects.com/)](https://img.shields.io/badge/Flask-3.0.3-000000.svg) | 3.0.3 | Flask backend/framework |
+| [![Semantic](https://example.com/)](https://img.shields.io/badge/Docs-Documentation-informational.svg) | Kernel | Semantic backend/framework |
+| [![Python](https://www.python.org/)](https://img.shields.io/badge/Python-3.12%2B-3776AB.svg) | 3.12+ | Python backend/framework |
 
 ### Deployment
 
 | Platform | Purpose |
 |----------|---------|
-| [![GCP](https://cloud.google.com/)](https://img.shields.io/badge/Deploy-GCP-informational.svg) | Primary deployment platform |
-| Docker | Containerization |
-| GitHub Actions | CI/CD pipeline |
+| [![Azure](https://img.shields.io/badge/Deploy-Azure-informational.svg)](https://azure.com/) | Primary deployment platform |
+| [![Docker](https://img.shields.io/badge/Docker-Containerization-2496ED.svg)](https://docker.com/) | docker |
+| [![GitHub Actions](https://img.shields.io/badge/CI%2FCD-GitHub%20Actions-success.svg)](https://github.com/features/actions) | github actions |
 
 ---
 
@@ -119,8 +122,8 @@ This project provides a complete, working solution to these challenges.
 #### ✅ Completed Features
 
 - Core Semantic Kernel integration
-- Astro frontend with TypeScript
-- Flask backend API
+- Modern frontend with TypeScript
+- Backend API framework
 - PostgreSQL database setup
 - Redis caching layer
 - Authentication system
@@ -275,44 +278,30 @@ docker-compose down
 ## 📁 Project Structure
 
 ```
-
 AI-SDK-SEMANTIC-KERNEL/
   CLAUDE.md
   CONTRIBUTING.md
   LICENSE
   README.md
-  docker-compose.yml
   frontend/
-    Dockerfile
-    README.md
-    astro.config.mjs
-    package.json
-    tsconfig.json
-    public/
-      favicon.ico
-      favicon.svg
     src/
-      styles/
-        global.css
       components/
-        ChatComponent.css
-        ChatComponent.tsx
-        Header.astro
-        MemoryComponent.css
-        MemoryComponent.tsx
-        PlannerComponent.css
-        PlannerComponent.tsx
-      layouts/
-        BaseLayout.astro
-      pages/
-...
+      lib/
+      app/
+  backend/
+    app/
+      api/
+      models/
+      services/
+    tests/
+  docs/
 ```
 
 ### Key Files and Directories
 
 | Path | Purpose |
 |------|---------|
-| `frontend/app/` | Frontend application code (Astro) |
+| `frontend/src/` | Frontend application code |
 | `frontend/components/` | Reusable UI components |
 | `frontend/lib/` | Utility functions and helpers |
 | `backend/app/` | Backend application code |
@@ -333,12 +322,12 @@ AI-SDK-SEMANTIC-KERNEL/
 graph TB
     subgraph "Client Layer"
         A[User Browser]
-        B[Astro Frontend]
+        B[Frontend]
     end
 
     subgraph "API Layer"
         C[API Gateway]
-        D[Flask Backend]
+        D[Backend API]
         E[Authentication]
     end
 
@@ -374,8 +363,8 @@ graph TB
 
 **Architecture Overview:**
 
-1. **Client Layer**: Astro provides responsive UI with real-time updates
-2. **API Layer**: Flask handles business logic and request routing
+1. **Client Layer**: Modern frontend provides responsive UI with real-time updates
+2. **API Layer**: Backend framework handles business logic and request routing
 3. **AI Layer**: Semantic Kernel orchestrates AI model interactions and workflows
 4. **Data Layer**: Persistent storage with caching for optimal performance
 
@@ -524,7 +513,7 @@ v1.0.0    # Major release (breaking changes)
 
 Release names follow the pattern: **[SDK Name] [Version]**
 
-Example: "LangChain 0.3.0", "CrewAI 0.28.0"
+Example: "Semantic Kernel Latest"
 
 ### Versioning Strategy
 
@@ -652,6 +641,7 @@ ENABLE_ANALYTICS=false
 | File | Location | Purpose |
 |------|----------|---------|
 | `next.config.js` | `frontend/` | Next.js configuration |
+| `vite.config.ts` | `frontend/` | Vite configuration |
 | `tsconfig.json` | `frontend/` | TypeScript configuration |
 | `tailwind.config.js` | `frontend/` | Tailwind CSS configuration |
 | `pytest.ini` | `backend/` | Pytest configuration |
@@ -1006,8 +996,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the full list of contributors.
 ### Acknowledgments
 
 - **Semantic Kernel Team** - For the amazing AI SDK
-- **Astro Team** - For the excellent frontend framework
-- **Flask Team** - For the robust backend framework
+- **React Team** - For the excellent frontend framework
+- **FastAPI/Django/Flask Team** - For the robust backend framework
 - **Open Source Community** - For inspiration and feedback
 
 ### Related Projects
