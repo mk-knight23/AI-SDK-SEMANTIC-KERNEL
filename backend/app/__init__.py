@@ -1,1 +1,1 @@
-# PatentIQ Backend Application
+# Semantic Kernel Backend Application

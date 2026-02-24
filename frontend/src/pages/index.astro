@@ -1,18 +1,27 @@
 ---
-
+// Main chat page with React component
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ChatComponent from '../components/ChatComponent';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>PatentIQ - Hello World</title>
-	</head>
-	<body>
-		<h1>Hello World from PatentIQ</h1>
-		<p>Astro 5 + Flask Application</p>
-	</body>
-</html>
+<BaseLayout title="Chat">
+	<div class="app">
+		<Header isHome={true} />
+		<main class="main">
+			<ChatComponent client:load />
+		</main>
+	</div>
+</BaseLayout>
+
+<style>
+	.main {
+		min-height: calc(100vh - 4rem);
+		display: flex;
+		flex-direction: column;
+	}
+</style>
+
+<script>
+	import Header from '../components/Header.astro';
+	import { createRoot } from 'react-dom';
+</script>

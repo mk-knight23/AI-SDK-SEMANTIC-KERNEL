@@ -1,0 +1,91 @@
+---
+// Header component
+---
+
+<header class="header">
+	<nav class="nav">
+		<div class="container nav-content">
+			<a href="/" class="logo">
+				<span class="logo-icon">AI</span>
+				<span class="logo-text">Semantic Kernel</span>
+			</a>
+			<ul class="nav-links">
+				<li><a href="/">Chat</a></li>
+				<li><a href="/plugins">Plugins</a></li>
+				<li><a href="/planner">Planner</a></li>
+				<li><a href="/memory">Memory</a></li>
+			</ul>
+		</div>
+	</nav>
+</header>
+
+<style>
+	.header {
+		background: var(--color-surface);
+		border-bottom: 1px solid var(--color-border);
+		position: sticky;
+		top: 0;
+		z-index: 100;
+	}
+
+	.nav {
+		padding: 1rem 0;
+	}
+
+	.nav-content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.logo {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		font-weight: 600;
+		font-size: 1.25rem;
+	}
+
+	.logo-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.5rem;
+		height: 2.5rem;
+		background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+		border-radius: 0.5rem;
+		font-size: 1rem;
+		font-weight: 700;
+	}
+
+	.logo-text {
+		color: var(--color-text);
+	}
+
+	.nav-links {
+		display: flex;
+		gap: 2rem;
+		list-style: none;
+	}
+
+	.nav-links a {
+		color: var(--color-text-muted);
+		font-weight: 500;
+		transition: color 0.2s;
+	}
+
+	.nav-links a:hover,
+	.nav-links a.active {
+		color: var(--color-primary);
+	}
+
+	@media (max-width: 640px) {
+		.nav-links {
+			gap: 1rem;
+		}
+
+		.logo-text {
+			display: none;
+		}
+	}
+</style>

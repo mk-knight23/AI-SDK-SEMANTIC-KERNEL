@@ -1,0 +1,190 @@
+---
+// Plugins page
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Plugins">
+	<div class="app">
+		<Header />
+		<main class="main">
+			<div class="container">
+				<div class="page-header">
+					<h1>Plugins</h1>
+					<p>Explore and test available Semantic Kernel plugins</p>
+				</div>
+
+				<div class="plugins-grid" id="plugins-container">
+					<div class="loading">Loading plugins...</div>
+				</div>
+			</div>
+		</main>
+	</div>
+</BaseLayout>
+
+<style>
+	.main {
+		min-height: calc(100vh - 4rem);
+		padding: 2rem 0;
+	}
+
+	.page-header {
+		text-align: center;
+		margin-bottom: 3rem;
+	}
+
+	.page-header h1 {
+		font-size: 2.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.page-header p {
+		color: var(--color-text-muted);
+	}
+
+	.plugins-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 1.5rem;
+	}
+
+	.plugin-card {
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: 0.75rem;
+		padding: 1.5rem;
+		transition: transform 0.2s, border-color 0.2s;
+	}
+
+	.plugin-card:hover {
+		transform: translateY(-2px);
+		border-color: var(--color-primary);
+	}
+
+	.plugin-header {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.plugin-icon {
+		width: 3rem;
+		height: 3rem;
+		background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+		border-radius: 0.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.5rem;
+	}
+
+	.plugin-name {
+		font-size: 1.25rem;
+		font-weight: 600;
+	}
+
+	.plugin-description {
+		color: var(--color-text-muted);
+		margin-bottom: 1rem;
+		line-height: 1.6;
+	}
+
+	.plugin-functions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-top: 1rem;
+	}
+
+	.function-chip {
+		padding: 0.25rem 0.75rem;
+		background: var(--color-background);
+		border: 1px solid var(--color-border);
+		border-radius: 1rem;
+		font-size: 0.75rem;
+		color: var(--color-text-muted);
+	}
+
+	.plugin-meta {
+		margin-top: 1rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--color-border);
+		display: flex;
+		gap: 1rem;
+		font-size: 0.875rem;
+		color: var(--color-text-muted);
+	}
+
+	.loading {
+		text-align: center;
+		padding: 3rem;
+		color: var(--color-text-muted);
+	}
+</style>
+
+<script define:vars={{ pluginIcons: { time: '🕐', calculator: '🔢', weather: '🌤️', text: '📝' } }}>
+	import Header from '../components/Header.astro';
+
+	async function loadPlugins() {
+		const container = document.getElementById('plugins-container');
+		if (!container) return;
+
+		try {
+			const response = await fetch('/api/plugins');
+			if (!response.ok) throw new Error('Failed to load plugins');
+
+			const data = await response.json();
+
+			if (data.plugins.length === 0) {
+				container.textContent = 'No plugins available';
+				return;
+			}
+
+			// Clear container
+			container.innerHTML = '';
+
+			// Create plugin cards using DOM methods (XSS-safe)
+			data.plugins.forEach((plugin) => {
+				const card = document.createElement('div');
+				card.className = 'plugin-card';
+
+				const icon = pluginIcons[plugin.name] || '🔌';
+
+				card.innerHTML = `
+					<div class="plugin-header">
+						<div class="plugin-icon">${escapeHtml(icon)}</div>
+						<div>
+							<div class="plugin-name">${escapeHtml(plugin.name)}</div>
+							<div style="font-size: 0.875rem; color: var(--color-text-muted);">v${escapeHtml(String(plugin.version))}</div>
+						</div>
+					</div>
+					<div class="plugin-description">${escapeHtml(plugin.description)}</div>
+					<div class="plugin-functions">
+						${plugin.functions.slice(0, 5).map((fn) => `
+							<span class="function-chip">${escapeHtml(fn)}</span>
+						`).join('')}
+						${plugin.functions.length > 5 ? `<span class="function-chip">+${plugin.functions.length - 5} more</span>` : ''}
+					</div>
+					<div class="plugin-meta">
+						<span>Author: ${escapeHtml(String(plugin.author || 'Unknown'))}</span>
+						<span>${plugin.functions.length} functions</span>
+					</div>
+				`;
+
+				container.appendChild(card);
+			});
+
+		} catch (error) {
+			container.textContent = 'Failed to load plugins';
+		}
+	}
+
+	function escapeHtml(text: string): string {
+		const div = document.createElement('div');
+		div.textContent = text;
+		return div.innerHTML;
+	}
+
+	// Load plugins on mount
+	loadPlugins();
+</script>

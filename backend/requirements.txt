@@ -1,4 +1,19 @@
+# Core dependencies
 flask==3.0.3
 gunicorn==23.0.0
 flask-cors==4.0.1
-haystack-ai==2.24.1
+
+# Semantic Kernel
+semantic-kernel==1.19.0
+
+# AI/ML
+openai==1.59.7
+anthropic==0.45.2
+
+# Utilities
+python-dotenv==1.0.1
+pydantic==2.10.4
+pydantic-settings==2.7.1
+
+# Memory
+numpy>=1.24.0,<2.0.0
