@@ -1,0 +1,13 @@
+{
+  "name": "AI-SDK-SEMANTIC-KERNEL",
+  "title": "Semantic Kernel Enterprise Hub",
+  "description": "Plugin-first enterprise copilot runtime with structured orchestration",
+  "topics": [
+    "semantic-kernel",
+    "plugins",
+    "enterprise",
+    "microsoft",
+    "python"
+  ],
+  "homepage": "https://mk-knight23.github.io/AI-SDK-SEMANTIC-KERNEL"
+}
