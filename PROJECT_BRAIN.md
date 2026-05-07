@@ -1,24 +1,25 @@
-# Project Brain: semantic_kernel
+# Project Brain: AI-SDK-SEMANTIC-KERNEL
 
 ## Purpose
-Implement Kazi's Agents Army mission routing on the semantic_kernel framework.
 
-## Core Mechanism
-- Receive mission text.
-- Route to primary + support agents via shared core router.
-- Convert routed mission into framework-native execution primitives.
+Plugin-first enterprise copilot runtime with structured orchestration.
 
 ## Current State
-- Adapter skeleton implemented with optional imports.
-- Demo mission execution path available via `python runner.py`.
 
-## Production Plan
-- Configure provider keys via environment variables.
-- Add persistent memory/checkpoint backends where available.
-- Add eval, tracing, and latency/cost dashboards.
-- Add CI tests and deployment workflows.
+- Shared mission routing and skill registry.
+- FastAPI service and CLI runner.
+- Semantic Kernel initialization path.
+- Environment-safe dependency handling.
+- Docker, CI, pytest contract tests, and skill documentation.
 
-## Risks
-- Framework API drift across versions.
-- Inference cost growth under multi-agent fan-out.
-- Tool execution needs policy and approval guardrails.
+## Upgrade Direction
+
+- Add plugins for search, deployment, and repository operations.
+- Wire planner/service connectors through environment configuration.
+- Add enterprise copilot scenarios with approval and audit trails.
+
+## Quality Bar
+
+- Keep the repository runnable from a fresh clone.
+- Keep generated caches and local secrets out of git.
+- Keep README, skill matrix, tests, and CI aligned with actual behavior.
